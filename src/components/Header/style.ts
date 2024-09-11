@@ -49,6 +49,7 @@ export const LogoContainer = styled.div`
 
   &:hover {
     a:last-child {
+      background-color: #C89B3C;
       img {
         transform: translate(0, 0);
         opacity: 1;

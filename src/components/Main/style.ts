@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const MainContainer = styled.main`
   display: flex;
@@ -7,11 +7,11 @@ export const MainContainer = styled.main`
   justify-content: space-between;
   gap: 2rem;
 
-  background: #1c1a22;
+  background: #fff; /* Fundo branco */
   @media (max-width: 820px) {
     overflow-x: hidden;
   }
-`
+`;
 
 export const SocialLinks = styled.div`
   max-width: 1224px;
@@ -35,16 +35,14 @@ export const SocialLinks = styled.div`
 
     a {
       background: linear-gradient(
-            ${(props) => props.theme.gray700},
-            ${(props) => props.theme.gray700}
+            ${(props) => props.theme.blue700}, /* Azul escuro para links */
+            ${(props) => props.theme.blue700}
           )
           padding-box,
-        ${(props) => props.theme.gradientBorder} border-box;
+        ${(props) => props.theme.goldBorder} border-box; /* Dourado para borda */
       border-radius: 8px;
       border: 1px solid transparent;
       z-index: 3;
-
-      border-radius: 8px;
 
       cursor: pointer;
 
@@ -52,9 +50,15 @@ export const SocialLinks = styled.div`
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
+      /* Adicionar cor de texto e hover */
+      color: #fff; /* Texto branco */
+      &:hover {
+        background: ${(props) => props.theme.blueHover}; /* Hover azul claro */
+      }
     }
   }
-`
+`;
 
 export const ChatPopup = styled.a`
   position: fixed;
@@ -66,18 +70,4 @@ export const ChatPopup = styled.a`
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  border-radius: 54px;
-
-  width: 64px;
-  height: 64px;
-
-  background: ${(props) => props.theme.gradientBorder};
-  filter: drop-shadow(29px 4px 56px rgba(20, 20, 21, 0.25));
-  backdrop-filter: blur(12px);
-
-  backdrop-filter: blur(8px);
-
-  @media (max-width: 820px) {
-    display: block;
-  }
-`
+  border-radius:54px; `

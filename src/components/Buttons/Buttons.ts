@@ -5,7 +5,7 @@ export const DefaultButton = styled.button`
   justify-content: center;
   align-items: center;
   padding: 1rem 2rem;
-  background: ${(props) => props.theme.primaryDefault};
+  background: #D4AF37 ;
   border-radius: 8px;
   cursor: pointer;
   transition: 0.5s;
@@ -19,7 +19,7 @@ export const DefaultButton = styled.button`
   color: ${(props) => props.theme.gray100};
 
   &:hover {
-    background: ${(props) => props.theme.primaryDark};
+    background: #1B4F72;
   }
 `
 export const InvisibleButton = styled(DefaultButton)`

@@ -28,11 +28,10 @@ export function Services() {
                 src={cardIconImg1}
                 alt="Direito Empresarial do trabalho"
               />
-              <h3>Direito Empresarial do trabalho</h3>
+              <h3>Direito trabalhista</h3>
             </div>
             <p className="description">
-              quisque suscipit per quisque suscipita ptent fusce dictum
-              porttitor auctor suscipit a adipiscing quisque suscipit.
+            Defendemos seus direitos no ambiente de trabalho, oferecendo assessoria especializada em questões trabalhistas para empregados e empregadores.
             </p>
           </div>
           <img
@@ -53,8 +52,7 @@ export function Services() {
               <h3>Direito de família</h3>
             </div>
             <p className="description">
-              quisque suscipit per quisque suscipita ptent fusce dictum
-              porttitor auctor suscipit a adipiscing quisque suscipit.
+            Assistência em questões familiares como divórcios, guarda, e pensão alimentícia, sempre buscando soluções amigáveis e justas.
             </p>
           </div>
           <img
@@ -72,11 +70,10 @@ export function Services() {
                 src={cardIconImg3}
                 alt="Direito tributário"
               />
-              <h3>Direito tributário</h3>
+              <h3>Direito do consumidor</h3>
             </div>
             <p className="description">
-              quisque suscipit per quisque suscipita ptent fusce dictum
-              porttitor auctor suscipit a adipiscing quisque suscipit.
+            Proteção aos direitos dos consumidores em casos de contratos abusivos, cobranças indevidas e outros conflitos com fornecedores.
             </p>
 
           </div>
@@ -95,11 +92,10 @@ export function Services() {
                 src={cardIconImg4}
                 alt="Direito digital"
               />
-              <h3>Direito digital</h3>
+              <h3>Busca e apreensão</h3>
             </div>
             <p className="description">
-              quisque suscipit per quisque suscipita ptent fusce dictum
-              porttitor auctor suscipit a adipiscing quisque suscipit.
+            Atuação rápida e eficaz em processos de busca e apreensão de bens, protegendo seus interesses com segurança jurídica.
             </p>
           </div>
           <img
@@ -120,8 +116,7 @@ export function Services() {
               <h3>Registro de marcas e patentes</h3>
             </div>
             <p className="description">
-              quisque suscipit per quisque suscipita ptent fusce dictum
-              porttitor auctor suscipit a adipiscing quisque suscipit.
+            Proteja sua marca e suas invenções com o registro de propriedade intelectual, garantindo seus direitos exclusivos no mercado.
             </p>
           </div>
           <img
@@ -142,8 +137,7 @@ export function Services() {
               <h3>Cobrança extrajudicial</h3>
             </div>
             <p className="description">
-              quisque suscipit per quisque suscipita ptent fusce dictum
-              porttitor auctor suscipit a adipiscing quisque suscipit.
+            Serviços de mediação, conciliação, e elaboração de documentos extrajudiciais, buscando soluções eficientes e menos burocráticas.
             </p>
           </div>
           <img

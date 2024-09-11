@@ -5,12 +5,7 @@ export const FooterContainer = styled.footer`
 
   padding: 0 1.5rem 0 1.5rem;
 
-  background: linear-gradient(
-        ${(props) => props.theme.gray800},
-        ${(props) => props.theme.gray800}
-      )
-      padding-box,
-    ${(props) => props.theme.gradientBorder} border-box;
+  background: #0A3D62;
   border-radius: 8px;
   border: 1px solid transparent;
 `
@@ -60,12 +55,7 @@ export const FooterContent = styled.div`
       justify-content: center;
       align-items: center;
 
-      background: linear-gradient(
-            ${(props) => props.theme.gray700},
-            ${(props) => props.theme.gray700}
-          )
-          padding-box,
-        ${(props) => props.theme.gradientBorder} border-box;
+      
       border-radius: 8px;
       border: 1px solid transparent;
 

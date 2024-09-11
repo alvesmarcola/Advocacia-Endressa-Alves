@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background: #1C1A22;
+        background: #FFFFFF;
         color: #fff;
 
         overflow-x: hidden;
@@ -27,12 +27,11 @@ export const GlobalStyle = createGlobalStyle`
         &::-webkit-scrollbar {
         border-radius: 8px;
         width: 0.5rem;
-        background: rgba(37, 35, 42, 1);
+        background: #fff ;
     }
     &::-webkit-scrollbar-thumb {
         border-radius: 8px;
-        background: rgba(168, 168, 170, 1);
-  }
+        background: #0A3D62 ;
     }
 
     body, input, textarea, button {

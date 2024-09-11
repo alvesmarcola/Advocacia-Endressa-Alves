@@ -168,6 +168,7 @@ export const HomeContent = styled.div`
 
   h1 {
     animation: showElementRight 1s;
+    color:black;
   }
 
   p {

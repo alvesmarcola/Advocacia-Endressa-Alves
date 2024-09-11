@@ -92,12 +92,7 @@ export const ServiceCard = styled.div`
   height: 15.12rem;
   z-index: 1;
 
-  background: linear-gradient(
-        ${(props) => props.theme.gray700},
-        ${(props) => props.theme.gray700}
-      )
-      padding-box,
-    ${(props) => props.theme.gradientBorder} border-box;
+  background: #0A3D62 ;
   border-radius: 8px;
   border: 1px solid transparent;
 
