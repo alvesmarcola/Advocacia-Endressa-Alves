@@ -1,7 +1,7 @@
 import linkedinImg from '../../assets/in_white.svg'
 import faceImg from '../../assets/face-white.svg'
 import instaImg from '../../assets/insta-white.svg'
-import logoSidebarImg from '../../assets/logo-sidebar.svg'
+import logoSidebarImg from '../../assets/ea_logo.png'
 import { Sidebar as SidebarContainer } from 'primereact/sidebar'
 import { SidebarButton, SidebarContent } from './style'
 import { useState } from 'react'
@@ -21,16 +21,13 @@ export function Sidebar() {
         alt="mostrar sidebar"
       ></SidebarButton>
       <SidebarContainer
-        style={{ background: 'rgba(97, 52, 203, 1)' }}
+        style={{ background: '#0A3D62' }}
         visible={visibleLeft}
         fullScreen
         onHide={() => setVisibleLeft(false)}
       >
         <SidebarContent>
           <nav>
-            <a href="#depoimentos" onClick={() => setVisibleLeft(false)}>
-              Depoimentos
-            </a>
             <a href="#contato" onClick={() => setVisibleLeft(false)}>
               Contato
             </a>
@@ -73,9 +70,9 @@ export function Sidebar() {
             </nav>
           </nav>
           <footer>
-            <img src={logoSidebarImg} alt="logomarca endressa" />
+            <img width={90} src={logoSidebarImg} alt="logomarca Endressa" />
             <p>
-              Empresa de advocacia especializada em resolver problemas
+              Advogada especializada em resolver problemas
               jurídicos.
             </p>
           </footer>

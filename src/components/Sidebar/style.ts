@@ -20,9 +20,7 @@ export const SidebarContent = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-
-  background: ${(props) => props.theme.primaryDark};
-
+  background: #0A3D62;
   transition: display 5s;
 
   width: 100%;

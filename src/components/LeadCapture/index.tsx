@@ -12,6 +12,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
 import { useState } from 'react'
+import emailjs from 'emailjs-com'  // Importe o EmailJS
 
 export function LeadCapture() {
   const leadCaptureFormValitationSchema = zod.object({
@@ -32,7 +33,27 @@ export function LeadCapture() {
 
   function handleCreateNewSubmit(data: leadCaptureFormData) {
     setFormData(data)
-    reset()
+
+    // Substitua pelo seu userID, serviceID e templateID do EmailJS
+    emailjs.send(
+      'seu_serviceID',  // Service ID
+      'seu_templateID', // Template ID
+      {
+        primeiro_nome: data.primeiro_nome,
+        ultimo_nome: data.ultimo_nome,
+        email: data.email,
+        telefone: data.telefone,
+        caso: data.caso,
+      },
+      'seu_userID' // User ID
+    )
+    .then((response) => {
+      console.log('E-mail enviado com sucesso!', response.status, response.text);
+      reset(); // Reseta o formulário após envio bem-sucedido
+    })
+    .catch((error) => {
+      console.error('Erro ao enviar o e-mail:', error);
+    });
   }
 
   return (
@@ -52,7 +73,6 @@ export function LeadCapture() {
                 <Input
                   {...register('primeiro_nome')}
                   placeholder="Primeiro nome"
-                  onEmpty={!!formState.errors.primeiro_nome}
                 />
                 <p>{formState.errors.primeiro_nome?.message}</p>
               </InputContainer>
@@ -61,7 +81,6 @@ export function LeadCapture() {
                 <Input
                   {...register('ultimo_nome')}
                   placeholder="Último nome"
-                  onEmpty={!!formState.errors.ultimo_nome}
                 />
                 <p>{formState.errors.ultimo_nome?.message}</p>
               </InputContainer>
@@ -72,7 +91,6 @@ export function LeadCapture() {
                 <Input
                   {...register('email')}
                   placeholder="E-mail"
-                  onEmpty={!!formState.errors.email}
                 />
                 <p>{formState.errors.email?.message}</p>
               </InputContainer>
@@ -81,7 +99,6 @@ export function LeadCapture() {
                 <Input
                   {...register('telefone')}
                   placeholder="Número de telefone"
-                  onEmpty={!!formState.errors.telefone}
                 />
                 <p>{formState.errors.telefone?.message}</p>
               </InputContainer>
@@ -93,7 +110,6 @@ export function LeadCapture() {
                 cols={25}
                 rows={10}
                 placeholder="Conte um pouco sobre o seu caso..."
-                onEmpty={!!formState.errors.caso}
               />
               <p>{formState.errors.caso?.message}</p>
             </InputContainer>

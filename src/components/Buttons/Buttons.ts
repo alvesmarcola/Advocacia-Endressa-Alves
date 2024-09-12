@@ -44,6 +44,6 @@ export const SmallInvisibleButton = styled(DefaultButton)`
   border-radius: 6px;
 
   &:hover {
-    background: ${(props) => props.theme.primaryDark};
+    background: #0A3D62;
   }
 `

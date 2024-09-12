@@ -13,9 +13,6 @@ export function Header() {
   
         </LogoContainer>
         <nav>
-          <a href="#depoimentos">
-            <SmallInvisibleButton>Depoimentos</SmallInvisibleButton>
-          </a>
           <a href="#contato">
             <SmallInvisibleButton>Contato</SmallInvisibleButton>
           </a>

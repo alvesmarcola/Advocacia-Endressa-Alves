@@ -9,8 +9,13 @@ export const CTAContainer = styled.section`
   width: 100%;
   position: relative;
 
-  background: ${(props) => props.theme.gradientSection};
-`
+  background: linear-gradient(
+  135deg, 
+  #ffffff 0%, 
+  #0A3D62 50%, 
+  #D4AF37 100% 
+); ` 
+
 export const Content = styled.div`
   display: flex;
   flex-direction: row;

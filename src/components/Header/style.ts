@@ -34,28 +34,15 @@ export const LogoContainer = styled.div`
   gap: 0.5rem;
 
   img {
-    height: 100%;
-    width: 100%;
+    height: 30%;
+    width: 30%;
   }
 
   a:last-child {
-    img {
-      opacity: 0;
-      transform: translate(-100%, 0);
-      transition: transform 0.3s, opacity 0.5s;
-    }
+    
     overflow: hidden;
   }
 
-  &:hover {
-    a:last-child {
-      background-color: #C89B3C;
-      img {
-        transform: translate(0, 0);
-        opacity: 1;
-      }
-    }
-  }
 
   @media (max-width: 1240px) {
     a:last-child {
