@@ -38,7 +38,7 @@ export function Sidebar() {
               Home
             </a>
             <a
-              href="wa.me//+555492391756"
+              href="https://wa.me/55492391756"
               target="_blank"
               rel="noreferrer"
             >

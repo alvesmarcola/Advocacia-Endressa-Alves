@@ -21,7 +21,7 @@ export function CTA() {
             obter mais informações.
           </p>
           <a
-            href="http://api.whatsapp.com/send?1=pt_BR&phone=55000000000000"
+            href="https://wa.me/55492391756"
             target="_blank"
             rel="noreferrer"
           >

@@ -8,10 +8,9 @@ export function Home() {
   return (
     <HomeContainer id="home">
       <HomeContent>
-        <h1>Quer Proteger Seus Direitos? Converse com Uma Advogada Hoje!</h1>
+        <h1>Seu patrimônio está em risco? Converse com Uma Advogada Hoje!</h1>
         <p>
-        Seu caso é único, e nosso atendimento também. 
-        Estamos prontos para oferecer o melhor suporte jurídico para você.
+        A busca e apreensão é um golpe no seu patrimônio! Não deixe que levem o que é seu! Saiba como resolver isso agora com uma advogada especialista
         </p>
         <div className="buttonContainer">
           <a href="#services">

@@ -1,4 +1,4 @@
-import { DefaultButton } from '../Buttons/Buttons'
+import { DefaultButton } from '../Buttons/Buttons';
 import {
   Content,
   FormContainer,
@@ -7,53 +7,45 @@ import {
   InputContainer,
   LeadCaptureContainer,
   TextArea,
-} from './style'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import * as zod from 'zod'
-import { useState } from 'react'
-import emailjs from 'emailjs-com'  // Importe o EmailJS
+} from './style';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as zod from 'zod';
+import emailJs from 'emailjs-com';
+
+const leadCaptureFormValitationSchema = zod.object({
+  primeiro_nome: zod.string().min(1, 'Favor preencher'),
+  ultimo_nome: zod.string().min(1, 'Favor preencher'),
+  email: zod.string().min(1, 'Favor preencher').email('Email inválido'),
+  telefone: zod.string().min(1, 'Favor preencher'),
+  caso: zod.string().min(1, 'Favor preencher'),
+});
+
+type leadCaptureFormData = zod.infer<typeof leadCaptureFormValitationSchema>;
 
 export function LeadCapture() {
-  const leadCaptureFormValitationSchema = zod.object({
-    primeiro_nome: zod.string().min(1, 'Favor preencher'),
-    ultimo_nome: zod.string().min(1, 'Favor preencher'),
-    email: zod.string().min(1, 'Favor preencher'),
-    telefone: zod.string().min(1, 'Favor preencher'),
-    caso: zod.string().min(1, 'Favor preencher'),
-  })
+  const { register, handleSubmit, formState, reset } = useForm<leadCaptureFormData>({
+    resolver: zodResolver(leadCaptureFormValitationSchema),
+  });
 
-  type leadCaptureFormData = zod.infer<typeof leadCaptureFormValitationSchema>
-  const [formData, setFormData] = useState<leadCaptureFormData>()
+  function sendEmail(data: leadCaptureFormData) {
+    const templateParams = {
+      primeiro_nome: data.primeiro_nome,
+      ultimo_nome: data.ultimo_nome,
+      email: data.email,
+      telefone: data.telefone,
+      caso: data.caso,
+    };
 
-  const { register, reset, handleSubmit, formState } =
-    useForm<leadCaptureFormData>({
-      resolver: zodResolver(leadCaptureFormValitationSchema),
-    })
-
-  function handleCreateNewSubmit(data: leadCaptureFormData) {
-    setFormData(data)
-
-    // Substitua pelo seu userID, serviceID e templateID do EmailJS
-    emailjs.send(
-      'seu_serviceID',  // Service ID
-      'seu_templateID', // Template ID
-      {
-        primeiro_nome: data.primeiro_nome,
-        ultimo_nome: data.ultimo_nome,
-        email: data.email,
-        telefone: data.telefone,
-        caso: data.caso,
-      },
-      'seu_userID' // User ID
-    )
-    .then((response) => {
-      console.log('E-mail enviado com sucesso!', response.status, response.text);
-      reset(); // Reseta o formulário após envio bem-sucedido
-    })
-    .catch((error) => {
-      console.error('Erro ao enviar o e-mail:', error);
-    });
+    emailJs
+      .send('service_x346wyb', 'template_dfot4m5', templateParams, 'hv6EbQTvcrUzfM1ZS')
+      .then((response) => {
+        console.log('EMAIL ENVIADO', response.status, response.text);
+        reset(); // Limpa os campos do formulário após o envio
+      })
+      .catch((error) => {
+        console.error('Erro ao enviar e-mail:', error);
+      });
   }
 
   return (
@@ -67,39 +59,27 @@ export function LeadCapture() {
               equipe avaliar, entraremos em contato!
             </p>
           </header>
-          <form onSubmit={handleSubmit(handleCreateNewSubmit)} action="">
+          <form onSubmit={handleSubmit(sendEmail)}>
             <FormRow>
               <InputContainer>
-                <Input
-                  {...register('primeiro_nome')}
-                  placeholder="Primeiro nome"
-                />
+                <Input {...register('primeiro_nome')} placeholder="Primeiro nome" />
                 <p>{formState.errors.primeiro_nome?.message}</p>
               </InputContainer>
 
               <InputContainer>
-                <Input
-                  {...register('ultimo_nome')}
-                  placeholder="Último nome"
-                />
+                <Input {...register('ultimo_nome')} placeholder="Último nome" />
                 <p>{formState.errors.ultimo_nome?.message}</p>
               </InputContainer>
             </FormRow>
 
             <FormRow>
               <InputContainer>
-                <Input
-                  {...register('email')}
-                  placeholder="E-mail"
-                />
+                <Input {...register('email')} placeholder="E-mail" />
                 <p>{formState.errors.email?.message}</p>
               </InputContainer>
 
               <InputContainer>
-                <Input
-                  {...register('telefone')}
-                  placeholder="Número de telefone"
-                />
+                <Input {...register('telefone')} placeholder="Número de telefone" />
                 <p>{formState.errors.telefone?.message}</p>
               </InputContainer>
             </FormRow>
@@ -114,12 +94,10 @@ export function LeadCapture() {
               <p>{formState.errors.caso?.message}</p>
             </InputContainer>
 
-            <DefaultButton type="submit">
-              Enviar consulta gratuita
-            </DefaultButton>
+            <DefaultButton type="submit">Enviar consulta gratuita</DefaultButton>
           </form>
         </FormContainer>
       </Content>
     </LeadCaptureContainer>
-  )
+  );
 }

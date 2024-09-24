@@ -23,7 +23,7 @@ export function Header() {
             <SmallInvisibleButton>Home</SmallInvisibleButton>
           </a>
           <a
-            href="http://api.whatsapp.com/send?1=pt_BR&phone=55051991276728"
+            href="https://wa.me/55492391756"
             target="_blank"
             rel="noreferrer"
           >
