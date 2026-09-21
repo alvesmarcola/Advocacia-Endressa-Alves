@@ -1,237 +1,112 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-export const ServicesContainer = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2.5rem;
-  width: 100%;
-  padding: 100px 1.5rem 0 1.5rem;
-
+export const SocialMediaContainer = styled.section`
   position: relative;
+  width: 100%;
+  min-height: 700px;
 
-  margin-bottom: 12rem;
+  background: #000;
 
-  .branchBg {
-    position: absolute;
-    right: -25%;
-    top: -8%;
-
-    transform: scaleX(-1);
-    rotate: -10deg;
-  }
-
-  .headerContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-
-    max-width: 1224px;
-    width: 100%;
-
-    h2 {
-      color: ${(props) => props.theme.gray100};
-      font-family: 'Lato';
-      font-weight: 400;
-      font-size: 2.5rem;
-      line-height: 125%;
-      text-align: center;
-
-      @media (max-width: 580px) {
-        font-size: 1.5rem;
-      }
-    }
-
-    p {
-      font-family: 'Lato';
-      font-weight: 400;
-      font-size: 1.25rem;
-      line-height: 29px;
-      color: ${(props) => props.theme.gray200};
-      opacity: 0.8;
-      text-align: center;
-
-      max-width: 635px;
-    }
-  }
-
-  @media (max-width: 580px) {
-    margin-bottom: 2rem;
-  }
-`
-
-export const CardContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1.5rem;
-
-  max-width: 1224px;
-
-  @media (max-width: 1150px) {
-    gap: 0;
-  }
-  @media (max-width: 1120px) {
-    gap: 0;
-  }
-  @media (max-width: 992px) {
-    grid-template-columns: 1fr 1fr;
-  }
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr 1fr;
-  }
-  @media (max-width: 580px) {
-    grid-template-columns: 1fr;
-  }
-`
-
-export const ServiceCard = styled.div`
-  width: 20.18rem;
-  height: 15.12rem;
-  z-index: 1;
-
-  background: #0A3D62 ;
-  border-radius: 8px;
-  border: 1px solid transparent;
-
-  padding: 1.5rem;
-  border-radius: 8px;
+  padding: 30px 55px;
 
   overflow: hidden;
-  cursor: pointer;
+
+  @media (max-width: 900px) {
+    min-height: auto;
+    padding: 30px 25px 60px;
+  }
+`;
+
+export const Title = styled.h2`
+  margin: 0;
+
+  color: #fff;
+
+  font-size: clamp(56px, 7vw, 96px);
+  font-weight: 400;
+  line-height: 0.8;
+  letter-spacing: -5px;
 
   position: relative;
+  z-index: 2;
+`;
+
+export const PostsContainer = styled.div`
+  position: relative;
+
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 1rem;
+  justify-content: center;
 
-  @media (max-width: 1120px) {
-    transform: scale(0.9);
+  gap: 18px;
+
+  margin-top: 70px;
+
+  transform: rotate(-1deg);
+
+  @media (max-width: 900px) {
+    flex-wrap: wrap;
+    margin-top: 50px;
   }
-  @media (max-width: 1150px) {
-    transform: scale(0.95);
-  }
+`;
 
-  &:hover,
-  &:active {
-    .description {
-      animation: toRight 0.5s;
-      transform: translate(0, 0);
-    }
+export const Post = styled.img`
+  width: 19%;
+  height: auto;
 
-    .Count {
-      opacity: 0;
-    }
+  object-fit: contain;
 
-    .header {
-      animation: toBottom 0.5s;
-      transform: translate(0, 0);
-    }
+  transition: transform 0.3s ease;
 
-    .arrow {
-      animation: toTop 0.5s;
-      transform: translate(0, 0);
-    }
+  &:hover {
+    transform: translateY(-12px);
   }
 
-  h3 {
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 1rem;
-    line-height: 150%;
-  }
+  &.post1 {
+    transform: rotate(3deg) translateY(5px);
 
-  .description {
-    font-family: 'Fira Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 150%;
-
-    color: ${(props) => props.theme.gray300};
-
-    transform: translate(-120%, 0);
-    transition: transform 0.5s;
-  }
-
-  .Count {
-    font-family: 'Fira Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 0.75rem;
-    line-height: 150%;
-
-    color: ${(props) => props.theme.gray500};
-    transition: opacity 0.3s;
-  }
-
-  .contentContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex: 1;
-  }
-
-  .arrow {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-
-    transform: translate(-50%, 50%);
-    transition: transform 0.5s;
-  }
-
-  .header {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-
-    margin-right: 3.31rem;
-    transform: translate(0, 200%);
-    transition: transform 0.5s;
-  }
-
-  @keyframes toRight {
-    0% {
-      transform: translate(-120%, 0);
-    }
-    50% {
-      transform: translate(10%, 0);
-    }
-    100% {
-      transform: translate(0, 0);
+    &:hover {
+      transform: rotate(3deg) translateY(-7px);
     }
   }
 
-  @keyframes toBottom {
-    0% {
-      transform: translate(0, 200%);
-    }
-    50% {
-      transform: translate(0, -20%);
-    }
-    100% {
-      transform: translate(0, 0);
+  &.post2 {
+    transform: rotate(-4deg) translateY(15px);
+
+    &:hover {
+      transform: rotate(-4deg) translateY(3px);
     }
   }
 
-  @keyframes toTop {
-    0% {
-      transform: translate(-50%, 50%);
-    }
-    50% {
-      transform: translate(20%, -20%);
-    }
-    100% {
-      transform: translate(0, 0);
+  &.post3 {
+    transform: rotate(4deg) translateY(0);
+
+    &:hover {
+      transform: rotate(4deg) translateY(-12px);
     }
   }
-`
+
+  &.post4 {
+    transform: rotate(-4deg) translateY(5px);
+
+    &:hover {
+      transform: rotate(-4deg) translateY(-7px);
+    }
+  }
+
+  &.post5 {
+    transform: rotate(6deg) translateY(-5px);
+
+    &:hover {
+      transform: rotate(6deg) translateY(-17px);
+    }
+  }
+
+  @media (max-width: 900px) {
+    width: 28%;
+  }
+
+  @media (max-width: 600px) {
+    width: 42%;
+  }
+`;

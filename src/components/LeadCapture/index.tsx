@@ -1,103 +1,54 @@
-import { DefaultButton } from '../Buttons/Buttons';
 import {
-  Content,
-  FormContainer,
-  FormRow,
-  Input,
-  InputContainer,
-  LeadCaptureContainer,
-  TextArea,
-} from './style';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as zod from 'zod';
-import emailJs from 'emailjs-com';
+  ServicesContainer,
+  CardsContainer,
+  Card,
+  CenterWrapper,
+  CenterImage,
+  CenterCard,
+  Title,
+  Quote,
+  Text,
+} from "./style";
 
-const leadCaptureFormValitationSchema = zod.object({
-  primeiro_nome: zod.string().min(1, 'Favor preencher'),
-  ultimo_nome: zod.string().min(1, 'Favor preencher'),
-  email: zod.string().min(1, 'Favor preencher').email('Email inválido'),
-  telefone: zod.string().min(1, 'Favor preencher'),
-  caso: zod.string().min(1, 'Favor preencher'),
-});
-
-type leadCaptureFormData = zod.infer<typeof leadCaptureFormValitationSchema>;
 
 export function LeadCapture() {
-  const { register, handleSubmit, formState, reset } = useForm<leadCaptureFormData>({
-    resolver: zodResolver(leadCaptureFormValitationSchema),
-  });
-
-  function sendEmail(data: leadCaptureFormData) {
-    const templateParams = {
-      primeiro_nome: data.primeiro_nome,
-      ultimo_nome: data.ultimo_nome,
-      email: data.email,
-      telefone: data.telefone,
-      caso: data.caso,
-    };
-
-    emailJs
-      .send('service_x346wyb', 'template_dfot4m5', templateParams, 'hv6EbQTvcrUzfM1ZS')
-      .then((response) => {
-        console.log('EMAIL ENVIADO', response.status, response.text);
-        reset(); // Limpa os campos do formulário após o envio
-      })
-      .catch((error) => {
-        console.error('Erro ao enviar e-mail:', error);
-      });
-  }
-
   return (
-    <LeadCaptureContainer id="contato">
-      <Content>
-        <FormContainer>
-          <header>
-            <h2>Realize sua consulta sem custo</h2>
-            <p>
-              Fale um pouco sobre o seu problema jurídico, assim que nossa
-              equipe avaliar, entraremos em contato!
-            </p>
-          </header>
-          <form onSubmit={handleSubmit(sendEmail)}>
-            <FormRow>
-              <InputContainer>
-                <Input {...register('primeiro_nome')} placeholder="Primeiro nome" />
-                <p>{formState.errors.primeiro_nome?.message}</p>
-              </InputContainer>
+    <ServicesContainer>
+      <CardsContainer>
+        <Card className="side-card">
+          <Title>O que torna a Duda diferente?</Title>
 
-              <InputContainer>
-                <Input {...register('ultimo_nome')} placeholder="Último nome" />
-                <p>{formState.errors.ultimo_nome?.message}</p>
-              </InputContainer>
-            </FormRow>
+          <Quote>“</Quote>
 
-            <FormRow>
-              <InputContainer>
-                <Input {...register('email')} placeholder="E-mail" />
-                <p>{formState.errors.email?.message}</p>
-              </InputContainer>
+          <Text>
+            Mais do que criar posts bonitos, 
+            a Duda pensa em estratégia, identidade e comunicação. 
+            Cada conteúdo é desenvolvido para conectar a marca com seu público e fortalecer sua presença digital.
+          </Text>
+        </Card>
 
-              <InputContainer>
-                <Input {...register('telefone')} placeholder="Número de telefone" />
-                <p>{formState.errors.telefone?.message}</p>
-              </InputContainer>
-            </FormRow>
+        <Card className="side-card">
+          <Title>Para quem é a Duda?</Title>
 
-            <InputContainer>
-              <TextArea
-                {...register('caso')}
-                cols={25}
-                rows={10}
-                placeholder="Conte um pouco sobre o seu caso..."
-              />
-              <p>{formState.errors.caso?.message}</p>
-            </InputContainer>
+          <Quote>“</Quote>
 
-            <DefaultButton type="submit">Enviar consulta gratuita</DefaultButton>
-          </form>
-        </FormContainer>
-      </Content>
-    </LeadCaptureContainer>
+          <Text>
+            Para marcas e profissionais que querem se posicionar melhor nas redes sociais, 
+            transmitir sua essência e transformar o Instagram em uma ferramenta de conexão e crescimento.
+          </Text>
+        </Card>
+
+        <Card className="side-card">
+          <Title>O que existe por trás de um perfil?</Title>
+
+          <Quote>“</Quote>
+
+          <Text>
+            Estratégia, planejamento, identidade visual e comunicação. 
+            Cada publicação precisa ter um propósito e contribuir para a forma como uma marca é percebida.
+          </Text>
+        </Card>
+      </CardsContainer>
+    </ServicesContainer>
   );
 }

@@ -19,40 +19,7 @@ export function Main() {
       <Home />
       <Services />
       <CTA />
-      <SocialLinks>
-        <nav>
-        <a
-            target="_blank"
-            href="https://www.linkedin.com/in/endressa-alves/"
-            rel="noreferrer"
-          >
-            <img width={40} height={40} src={linkedinImg} alt="linkedin" />
-          </a>
-          <a
-            target="_blank"
-            href="https://www.facebook.com/endressa.alves"
-            rel="noreferrer"
-          >
-            <img width={40} height={40} src={faceImg} alt="facebook" />
-          </a>
-          <a
-            target="_blank"
-            href="https://www.instagram.com/endressalves?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-            rel="noreferrer"
-          >
-            <img width={40} height={40} src={instaImg} alt="instagram" />
-          </a>
-        </nav>
-      </SocialLinks>
-      <ChatPopup>
-        <a
-          href="https://wa.me/55492391756"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img src={wppImg} alt="whatsapp" />
-        </a>
-      </ChatPopup>
+      
       <LeadCapture />
       <Footer />
     </MainContainer>

@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components'
 import { defaultTheme } from '../styles/themes/defaultTheme'
 import { ParallaxProvider } from 'react-scroll-parallax'
 
+
 function App() {
   return (
     <>

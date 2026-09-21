@@ -1,35 +1,67 @@
-import { Content, CTAContainer } from './style'
-import ctaImg from '../../assets/CTA.png'
-import { DefaultButton } from '../Buttons/Buttons'
-import branchBgImg from '../../assets/branch_bg.png'
+import {
+  ServicesContainer,
+  Header,
+  Title,
+  Dot,
+  DottedLine,
+  Subtitle,
+  CardsContainer,
+  ServiceCard,
+  Icon,
+  CardTitle,
+  CardText,
+} from "./style";
 
 export function CTA() {
+  const Cta = [
+    {
+      icon: "✦",
+      title: "Estratégia",
+      text: "Planejamento de conteúdo alinhado aos objetivos e ao posicionamento da marca.",
+    },
+    {
+      icon: "✎",
+      title: "Criação de Conteúdo",
+      text: "Conteúdos pensados para comunicar, gerar conexão e fortalecer a identidade da marca.",
+    },
+    {
+      icon: "▣",
+      title: "Gestão de Redes",
+      text: "Organização e gerenciamento da presença digital para manter uma comunicação consistente.",
+    },
+    {
+      icon: "↗",
+      title: "Análise de Resultados",
+      text: "Acompanhamento dos dados para entender o desempenho e orientar os próximos passos.",
+    },
+  ];
+
   return (
-    <CTAContainer>
-      <Content>
-        <img
-          width={496}
-          height={680}
-          src={ctaImg}
-          alt="balança simbolo da justiça"
-        />
-        <div>
-          <h1>Sua justiça é a nossa prioridade</h1>
-          <p>
-            Garantimos a defesa de seus direitos e podemos ajudá-lo a encontrar
-            a solução ideal para o seu problema. Entre em contato conosco para
-            obter mais informações.
-          </p>
-          <a
-            href="https://wa.me/55492391756"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <DefaultButton>Entrar em contato</DefaultButton>
-          </a>
-        </div>
-        <img className="branchBg" src={branchBgImg} alt="ramo de fundo" />
-      </Content>
-    </CTAContainer>
-  )
+    <ServicesContainer>
+      <Header>
+        <Title>
+          O que fazemos?
+          <Dot />
+        </Title>
+
+        <DottedLine />
+
+        <Subtitle>
+          Estratégia e conteúdo para construir uma presença digital relevante.
+        </Subtitle>
+      </Header>
+
+      <CardsContainer>
+        {Cta.map((service, index) => (
+          <ServiceCard key={index}>
+            <Icon>{service.icon}</Icon>
+
+            <CardTitle>{service.title}</CardTitle>
+
+            <CardText>{service.text}</CardText>
+          </ServiceCard>
+        ))}
+      </CardsContainer>
+    </ServicesContainer>
+  );
 }

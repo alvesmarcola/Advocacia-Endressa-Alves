@@ -1,7 +1,6 @@
 import linkedinImg from '../../assets/in_white.svg'
 import faceImg from '../../assets/face-white.svg'
 import instaImg from '../../assets/insta-white.svg'
-import logoSidebarImg from '../../assets/ea_logo.png'
 import { Sidebar as SidebarContainer } from 'primereact/sidebar'
 import { SidebarButton, SidebarContent } from './style'
 import { useState } from 'react'
@@ -38,7 +37,7 @@ export function Sidebar() {
               Home
             </a>
             <a
-              href="https://wa.me/55492391756"
+              href="https://wa.me/5499359083"
               target="_blank"
               rel="noreferrer"
             >
@@ -48,7 +47,7 @@ export function Sidebar() {
             <nav className="socialNav">
             <a
             target="_blank"
-            href="https://www.linkedin.com/in/endressa-alves/"
+            href="https://www.linkedin.com/in/"
             rel="noreferrer"
           >
             <img width={40} height={40} src={linkedinImg} alt="linkedin" />
@@ -70,10 +69,9 @@ export function Sidebar() {
             </nav>
           </nav>
           <footer>
-            <img width={90} src={logoSidebarImg} alt="logomarca Endressa" />
+            <img width={90}  alt="logomarca" />
             <p>
-              Advogada especializada em resolver problemas
-              jurídicos.
+              Social media.
             </p>
           </footer>
         </SidebarContent>

@@ -1,130 +1,166 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-export const CTAContainer = styled.section`
+export const ServicesContainer = styled.section`
+  width: 100%;
+  min-height: 500px;
+
+  background: #f5f7f8;
+
+  padding: 95px 30px;
+
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 
+  overflow: hidden;
+`;
+
+export const Header = styled.div`
   width: 100%;
-  position: relative;
+  max-width: 1000px;
 
-  background: linear-gradient(
-  135deg, 
-  #ffffff 0%, 
-  #0A3D62 50%, 
-  #D4AF37 100% 
-); ` 
-
-export const Content = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 8rem;
+  flex-direction: column;
+  align-items: center;
 
+  margin-bottom: 35px;
+`;
+
+export const Title = styled.h2`
   position: relative;
+
+  margin: 0;
+
+  color: #162b50;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 41px;
+  font-weight: 700;
+
+  letter-spacing: -1.5px;
+
+  display: flex;
+  align-items: center;
+`;
+
+export const Dot = styled.span`
+  width: 7px;
+  height: 7px;
+
+  margin-left: 4px;
+
+  background: #7fc9dc;
+
+  border-radius: 50%;
+
+  display: inline-block;
+`;
+
+export const DottedLine = styled.div`
   width: 100%;
-  max-width: 1224px;
+  max-width: 760px;
 
-  padding: 0 2rem 0 2rem;
+  border-top: 2px dotted #9ed9e7;
 
-  .branchBg {
-    position: absolute;
-    right: -2%;
-    top: 15%;
-    z-index: 0;
+  margin-top: -13px;
+`;
 
-    transform: scaleX(-1);
-    rotate: -10deg;
+export const Subtitle = styled.p`
+  margin: 10px 0 0;
+
+  color: #777;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 18px;
+
+  text-align: center;
+`;
+
+export const CardsContainer = styled.div`
+  width: 100%;
+  max-width: 1000px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 12px;
+
+  @media (max-width: 850px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  h1 {
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 3.5rem;
-    line-height: 125%;
-
-    color: ${(props) => props.theme.gray100};
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr;
   }
+`;
 
-  p {
-    font-family: 'Fira Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.25rem;
-    line-height: 150%;
+export const ServiceCard = styled.div`
+  min-height: 145px;
 
-    max-width: 418px;
+  background: #fff;
 
-    color: ${(props) => props.theme.gray300};
+  border-radius: 8px;
+
+  padding: 18px 16px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
   }
+`;
 
-  div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1.5rem;
-    z-index: 1;
+export const Icon = styled.div`
+  width: 30px;
+  height: 30px;
 
-    max-width: 500px;
-    width: 100%;
-  }
+  margin-bottom: 8px;
 
-  button {
-    max-width: 195px;
-    margin-top: 1.5rem;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  img {
-    margin-top: -4.25rem;
-    margin-left: 2rem;
-  }
+  color: #2464d8;
 
-  @media (max-width: 1024px) {
-    gap: 3rem;
+  font-size: 25px;
+  font-weight: 700;
+`;
 
-    h1 {
-      font-size: 3rem !important;
-    }
-  }
+export const CardTitle = styled.h3`
+  margin: 0 0 7px;
 
-  @media (max-width: 940px) {
-    img:first-child {
-      width: 309.5px;
-      height: 424.75px;
-    }
-  }
+  color: #162b50;
 
-  @media (max-width: 670px) {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
 
-    h1 {
-      font-size: 2rem !important;
-    }
+  font-size: 13px;
+  font-weight: 700;
+`;
 
-    p {
-      font-size: 1rem;
-    }
+export const CardText = styled.p`
+  margin: 0;
 
-    img:first-child {
-      margin-top: 0;
-      margin-left: 0;
+  max-width: 190px;
 
-      z-index: 1;
-    }
+  color: #777;
 
-    div {
-      align-items: center;
-      padding-top: 2rem;
+  font-family: Arial, Helvetica, sans-serif;
 
-      button {
-        width: 100%;
-        max-width: 428px;
-      }
-    }
-  }
-`
+  font-size: 10px;
+
+  line-height: 1.4;
+`;

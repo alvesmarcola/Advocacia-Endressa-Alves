@@ -1,5 +1,5 @@
 import { HeaderContainer, HeaderContent, LogoContainer } from './style'
-import logoSmallImg from '../../assets/ea_logo.png'
+
 import { SmallInvisibleButton, SmallOutlineButton } from '../Buttons/Buttons'
 
 export function Header() {
@@ -8,7 +8,7 @@ export function Header() {
       <HeaderContent>
         <LogoContainer>
           <a href="#home">
-            <img width={40} height={40} src={logoSmallImg}  alt="logo Endressa" />
+            <img width={40} height={40}   alt="logo" />
           </a>
   
         </LogoContainer>
@@ -23,7 +23,7 @@ export function Header() {
             <SmallInvisibleButton>Home</SmallInvisibleButton>
           </a>
           <a
-            href="https://wa.me/55492391756"
+            href="https://wa.me/5499359083"
             target="_blank"
             rel="noreferrer"
           >

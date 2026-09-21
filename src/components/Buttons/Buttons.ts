@@ -5,7 +5,7 @@ export const DefaultButton = styled.button`
   justify-content: center;
   align-items: center;
   padding: 1rem 2rem;
-  background: #D4AF37 ;
+  background: #7A8568 ;
   border-radius: 8px;
   cursor: pointer;
   transition: 0.5s;
@@ -23,7 +23,7 @@ export const DefaultButton = styled.button`
   }
 `
 export const InvisibleButton = styled(DefaultButton)`
-  background: transparent;
+  background: burlywood;
 `
 export const SmallOutlineButton = styled(DefaultButton)`
   padding: 0.62rem 2rem;

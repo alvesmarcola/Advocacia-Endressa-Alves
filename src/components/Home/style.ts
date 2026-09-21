@@ -19,8 +19,8 @@ export const HomeContainer = styled.section`
   }
 
   .parallaxImg {
-    height: 100%;
-    width: 100%;
+    display:none;
+    
   }
 
   .paralaxContainer {
@@ -63,7 +63,7 @@ export const HomeContainer = styled.section`
     }
 
     strong {
-      font-family: 'Lato';
+      font-family: 'math';
       font-weight: 400;
       font-size: 2rem;
       line-height: 2.37rem;
