@@ -1,58 +1,92 @@
 import {
-  SocialMediaContainer,
+  ServicesContainer,
+  Content,
+  TitleContainer,
   Title,
-  PostsContainer,
-  Post,
-} from "./style";
+  Flower,
+  StepsContainer,
+  Step,
+  Number,
+  StepText,
+  Line,
+} from './style'
 
-import post1 from "../../assets/post1.jpeg";
-import post2 from "../../assets/post2.jpeg";
-import post3 from "../../assets/post3.jpeg";
-import post4 from "../../assets/post4.jpeg";
-import post5 from "../../assets/post5.jpeg";
+import flower from '../../assets/branch_bg.png'
 
 export function Services() {
-  const posts = [
-    {
-      image: post1,
-      className: "post1",
-    },
-    {
-      image: post2,
-      className: "post2",
-    },
-    {
-      image: post3,
-      className: "post3",
-    },
-    {
-      image: post4,
-      className: "post4",
-    },
-    {
-      image: post5,
-      className: "post5",
-    },
-  ];
-
   return (
-    <SocialMediaContainer>
-      <Title>
-        Social
-        <br />
-        Media
-      </Title>
+    <ServicesContainer id="services">
+      <Content>
 
-      <PostsContainer>
-        {posts.map((post, index) => (
-          <Post
-            key={index}
-            src={post.image}
-            alt={`Social Media ${index + 1}`}
-            className={post.className}
-          />
-        ))}
-      </PostsContainer>
-    </SocialMediaContainer>
-  );
+        <TitleContainer>
+          <Title>
+            Passo a passo
+            <br />
+            do que eu
+            <br />
+            ofereço
+          </Title>
+
+          <Flower src={flower} alt="" />
+        </TitleContainer>
+
+        <StepsContainer>
+
+          <Step>
+            <Line />
+
+            <Number className="number1">
+              1
+            </Number>
+
+            <StepText>
+              Inicialmente analiso o seu cliente e
+              <br />
+              entendo o que ele espera do seu
+              <br />
+              trabalho. O que você oferece que seu
+              <br />
+              cliente precisa?
+            </StepText>
+          </Step>
+
+          <Step>
+            <Number className="number2">
+              2
+            </Number>
+
+            <StepText>
+              Depois de entender quem é seu cliente e
+              <br />
+              o que ele espera, traçamos juntos o que
+              <br />
+              você espera do meu trabalho. E então
+              <br />
+              iniciaremos nosso projeto.
+            </StepText>
+          </Step>
+
+          <Step>
+            <Number className="number3">
+              3
+            </Number>
+
+            <StepText>
+              Criamos um roteiro, um calendário
+              <br />
+              flexível conforme a receptividade dos
+              <br />
+              seus clientes, criamos conteúdo. Entrego
+              <br />
+              vídeos, fotos de produto e gestão do seu
+              <br />
+              perfil.
+            </StepText>
+          </Step>
+
+        </StepsContainer>
+
+      </Content>
+    </ServicesContainer>
+  )
 }

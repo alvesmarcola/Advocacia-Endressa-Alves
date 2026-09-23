@@ -1,54 +1,59 @@
 import {
-  ServicesContainer,
+  LeadCaptureContainer,
+  Content,
+  Title,
+  Flower,
   CardsContainer,
   Card,
-  CenterWrapper,
-  CenterImage,
-  CenterCard,
-  Title,
-  Quote,
-  Text,
-} from "./style";
+  CardTitle,
+  CardImage,
+} from './style'
 
+import flower from '../../assets/branch_bg.png'
+
+import visibilityImg from '../../assets/visibility.jpeg'
+import organizationImg from '../../assets/organization.jpeg'
+import interactionImg from '../../assets/interaction.jpeg'
 
 export function LeadCapture() {
   return (
-    <ServicesContainer>
-      <CardsContainer>
-        <Card className="side-card">
-          <Title>O que torna a Duda diferente?</Title>
+    <LeadCaptureContainer>
+      <Content>
+        <Title>
+          O que meu trabalho proporcionou?
+        </Title>
 
-          <Quote>“</Quote>
+        <Flower src={flower} alt="" />
 
-          <Text>
-            Mais do que criar posts bonitos, 
-            a Duda pensa em estratégia, identidade e comunicação. 
-            Cada conteúdo é desenvolvido para conectar a marca com seu público e fortalecer sua presença digital.
-          </Text>
-        </Card>
+        <CardsContainer>
+          <Card>
+            <CardTitle>Visibilidade</CardTitle>
 
-        <Card className="side-card">
-          <Title>Para quem é a Duda?</Title>
+            <CardImage
+              src={visibilityImg}
+              alt="Resultado de visibilidade"
+            />
+          </Card>
 
-          <Quote>“</Quote>
+          <Card>
+            <CardTitle>Organização/Credibilidade</CardTitle>
 
-          <Text>
-            Para marcas e profissionais que querem se posicionar melhor nas redes sociais, 
-            transmitir sua essência e transformar o Instagram em uma ferramenta de conexão e crescimento.
-          </Text>
-        </Card>
+            <CardImage
+              src={organizationImg}
+              alt="Resultado de organização e credibilidade"
+            />
+          </Card>
 
-        <Card className="side-card">
-          <Title>O que existe por trás de um perfil?</Title>
+          <Card>
+            <CardTitle>Interação/Vendas</CardTitle>
 
-          <Quote>“</Quote>
-
-          <Text>
-            Estratégia, planejamento, identidade visual e comunicação. 
-            Cada publicação precisa ter um propósito e contribuir para a forma como uma marca é percebida.
-          </Text>
-        </Card>
-      </CardsContainer>
-    </ServicesContainer>
-  );
+            <CardImage
+              src={interactionImg}
+              alt="Resultado de interação e vendas"
+            />
+          </Card>
+        </CardsContainer>
+      </Content>
+    </LeadCaptureContainer>
+  )
 }

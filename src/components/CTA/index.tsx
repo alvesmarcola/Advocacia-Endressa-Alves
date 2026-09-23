@@ -1,67 +1,100 @@
 import {
-  ServicesContainer,
-  Header,
+  CTAContainer,
+  Content,
   Title,
-  Dot,
-  DottedLine,
-  Subtitle,
-  CardsContainer,
-  ServiceCard,
-  Icon,
-  CardTitle,
-  CardText,
-} from "./style";
+  ServiceList,
+  Service,
+  ServiceHeader,
+  ServiceName,
+  Price,
+  Description,
+  PhoneImage,
+  Flower,
+} from './style'
+
+import phoneImg from '../../assets/services-img.png'
+import flowerImg from '../../assets/branch_bg.png'
 
 export function CTA() {
-  const Cta = [
-    {
-      icon: "✦",
-      title: "Estratégia",
-      text: "Planejamento de conteúdo alinhado aos objetivos e ao posicionamento da marca.",
-    },
-    {
-      icon: "✎",
-      title: "Criação de Conteúdo",
-      text: "Conteúdos pensados para comunicar, gerar conexão e fortalecer a identidade da marca.",
-    },
-    {
-      icon: "▣",
-      title: "Gestão de Redes",
-      text: "Organização e gerenciamento da presença digital para manter uma comunicação consistente.",
-    },
-    {
-      icon: "↗",
-      title: "Análise de Resultados",
-      text: "Acompanhamento dos dados para entender o desempenho e orientar os próximos passos.",
-    },
-  ];
-
   return (
-    <ServicesContainer>
-      <Header>
-        <Title>
-          O que fazemos?
-          <Dot />
-        </Title>
+    <CTAContainer id="cta">
+      <Content>
+        <div className="leftContent">
+          <Title>
+            Serviços Iniciais para
+            <br />
+            profissionalizar seu perfil
+          </Title>
 
-        <DottedLine />
+          <ServiceList>
+            <Service>
+              <ServiceHeader>
+                <ServiceName>
+                  <span>➜</span>
+                  Análise de Perfil
+                </ServiceName>
 
-        <Subtitle>
-          Estratégia e conteúdo para construir uma presença digital relevante.
-        </Subtitle>
-      </Header>
+                <Price>R$ 180,00</Price>
+              </ServiceHeader>
 
-      <CardsContainer>
-        {Cta.map((service, index) => (
-          <ServiceCard key={index}>
-            <Icon>{service.icon}</Icon>
+              <Description>
+                Analisaremos as métricas de perfil, ajustes na biografia
+                <br />
+                de suas redes sociais, padronização de atendimento
+              </Description>
+            </Service>
 
-            <CardTitle>{service.title}</CardTitle>
+            <Service>
+              <ServiceHeader>
+                <ServiceName>
+                  <span>➜</span>
+                  Fotos e Gravações
+                </ServiceName>
 
-            <CardText>{service.text}</CardText>
-          </ServiceCard>
-        ))}
-      </CardsContainer>
-    </ServicesContainer>
-  );
+                <Price>R$ 350,00</Price>
+              </ServiceHeader>
+
+              <Description>
+                Crio roteiros, que te conectam, gravamos vídeos e faço
+                <br />
+                fotos de produtos, te entrego em alta qualidade e
+                <br />
+                prontos para post.
+              </Description>
+            </Service>
+
+            <Service>
+              <ServiceHeader>
+                <ServiceName>
+                  <span>➜</span>
+                  Gerenciamento
+                </ServiceName>
+
+                <Price>R$ 550,00</Price>
+              </ServiceHeader>
+
+              <Description>
+                Nesse pacote incluiremos os dois planos acima e
+                <br />
+                incluímos a gestão das redes sociais da sua empresa,
+                <br />
+                com posts programados, tráfego pago e análises
+                <br />
+                semanais.
+              </Description>
+            </Service>
+          </ServiceList>
+        </div>
+
+        <div className="rightContent">
+          <PhoneImage
+            src={phoneImg}
+            alt="Exemplo de conteúdo para redes sociais"
+          />
+
+          <Flower src={flowerImg} alt="" />
+        </div>
+      </Content>
+    </CTAContainer>
+  )
 }

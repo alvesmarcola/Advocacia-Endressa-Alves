@@ -1,112 +1,263 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-export const SocialMediaContainer = styled.section`
+export const ServicesContainer = styled.section`
   position: relative;
+
   width: 100%;
-  min-height: 700px;
+  min-height: 100vh;
 
-  background: #000;
-
-  padding: 30px 55px;
+  background: ${({ theme }) => theme.offWhite};
 
   overflow: hidden;
 
-  @media (max-width: 900px) {
-    min-height: auto;
-    padding: 30px 25px 60px;
+  padding: 5rem 7vw;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 35px;
+    height: 100%;
+
+    background: ${({ theme }) => theme.plum};
   }
-`;
+
+  @media (max-width: 768px) {
+    padding: 4rem 2rem;
+
+    &::before {
+      width: 12px;
+    }
+  }
+`
+
+export const Content = styled.div`
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 42% 58%;
+
+  min-height: 90vh;
+
+  align-items: center;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+`
+
+export const TitleContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding-left: 2rem;
+
+  @media (max-width: 768px) {
+    padding-left: 0;
+  }
+`
 
 export const Title = styled.h2`
-  margin: 0;
+  font-family: 'Playfair Display', serif;
 
-  color: #fff;
+  font-size: clamp(3.5rem, 5vw, 5rem);
 
-  font-size: clamp(56px, 7vw, 96px);
+  line-height: 0.85;
+
   font-weight: 400;
-  line-height: 0.8;
-  letter-spacing: -5px;
 
-  position: relative;
-  z-index: 2;
-`;
+  color: ${({ theme }) => theme.plum};
 
-export const PostsContainer = styled.div`
+  letter-spacing: -2px;
+
+  animation: titleEnter 1s ease-out;
+
+  @keyframes titleEnter {
+    from {
+      opacity: 0;
+      transform: translateX(-60px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    font-size: 3.5rem;
+  }
+`
+
+export const Flower = styled.img`
+  width: 90px;
+
+  margin-top: 2rem;
+  margin-left: 5rem;
+
+  opacity: 0.75;
+
+  animation: flowerEnter 1.3s ease-out;
+
+  @keyframes flowerEnter {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    to {
+      opacity: 0.75;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    margin-left: 2rem;
+  }
+`
+
+export const StepsContainer = styled.div`
   position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 4.5rem;
+
+  padding-left: 4rem;
+
+  @media (max-width: 768px) {
+    padding-left: 0;
+    gap: 3rem;
+  }
+`
+
+export const Step = styled.div`
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 90px 1fr;
+
+  align-items: center;
+
+  gap: 1.2rem;
+
+  animation: stepEnter 0.8s ease-out backwards;
+
+  &:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+
+  &:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+
+  @keyframes stepEnter {
+    from {
+      opacity: 0;
+      transform: translateX(70px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 70px 1fr;
+  }
+`
+
+export const Number = styled.div`
+  width: 80px;
+  height: 80px;
+
+  border-radius: 50%;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  gap: 18px;
+  font-family: 'Playfair Display', serif;
 
-  margin-top: 70px;
+  font-size: 3.5rem;
 
-  transform: rotate(-1deg);
+  color: ${({ theme }) => theme.offWhite};
 
-  @media (max-width: 900px) {
-    flex-wrap: wrap;
-    margin-top: 50px;
-  }
-`;
-
-export const Post = styled.img`
-  width: 19%;
-  height: auto;
-
-  object-fit: contain;
-
-  transition: transform 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 
   &:hover {
-    transform: translateY(-12px);
+    transform: scale(1.08);
+
+    box-shadow: 0 8px 25px rgba(87, 60, 44, 0.18);
   }
 
-  &.post1 {
-    transform: rotate(3deg) translateY(5px);
-
-    &:hover {
-      transform: rotate(3deg) translateY(-7px);
-    }
+  &.number1 {
+    background: ${({ theme }) => theme.rose};
   }
 
-  &.post2 {
-    transform: rotate(-4deg) translateY(15px);
-
-    &:hover {
-      transform: rotate(-4deg) translateY(3px);
-    }
+  &.number2 {
+    background: ${({ theme }) => theme.plum};
   }
 
-  &.post3 {
-    transform: rotate(4deg) translateY(0);
-
-    &:hover {
-      transform: rotate(4deg) translateY(-12px);
-    }
+  &.number3 {
+    background: ${({ theme }) => theme.coffee};
   }
 
-  &.post4 {
-    transform: rotate(-4deg) translateY(5px);
+  @media (max-width: 768px) {
+    width: 65px;
+    height: 65px;
 
-    &:hover {
-      transform: rotate(-4deg) translateY(-7px);
-    }
+    font-size: 2.8rem;
   }
+`
 
-  &.post5 {
-    transform: rotate(6deg) translateY(-5px);
+export const StepText = styled.p`
+  font-family: 'Montserrat', sans-serif;
 
-    &:hover {
-      transform: rotate(6deg) translateY(-17px);
-    }
+  font-size: 1rem;
+
+  line-height: 1.25;
+
+  color: ${({ theme }) => theme.coffee};
+
+  max-width: 420px;
+
+  margin: 0;
+`
+
+export const Line = styled.div`
+  position: absolute;
+
+  width: 120px;
+
+  height: 1px;
+
+  background: ${({ theme }) => theme.coffee};
+
+  left: -120px;
+  top: 50%;
+
+  opacity: 0.8;
+
+  @media (max-width: 768px) {
+    display: none;
   }
-
-  @media (max-width: 900px) {
-    width: 28%;
-  }
-
-  @media (max-width: 600px) {
-    width: 42%;
-  }
-`;
+`

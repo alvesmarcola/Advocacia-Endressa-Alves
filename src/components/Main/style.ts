@@ -5,7 +5,7 @@ export const MainContainer = styled.main`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
+  gap: 0.5rem;
 
   background: #fff; /* Fundo branco */
   @media (max-width: 820px) {

@@ -1,166 +1,256 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-export const ServicesContainer = styled.section`
-  width: 100%;
-  min-height: 500px;
-
-  background: #f5f7f8;
-
-  padding: 95px 30px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  overflow: hidden;
-`;
-
-export const Header = styled.div`
-  width: 100%;
-  max-width: 1000px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  margin-bottom: 35px;
-`;
-
-export const Title = styled.h2`
+export const CTAContainer = styled.section`
   position: relative;
 
-  margin: 0;
-
-  color: #162b50;
-
-  font-family: Arial, Helvetica, sans-serif;
-
-  font-size: 41px;
-  font-weight: 700;
-
-  letter-spacing: -1.5px;
-
-  display: flex;
-  align-items: center;
-`;
-
-export const Dot = styled.span`
-  width: 7px;
-  height: 7px;
-
-  margin-left: 4px;
-
-  background: #7fc9dc;
-
-  border-radius: 50%;
-
-  display: inline-block;
-`;
-
-export const DottedLine = styled.div`
   width: 100%;
-  max-width: 760px;
+  min-height: 100vh;
 
-  border-top: 2px dotted #9ed9e7;
+  background: ${({ theme }) => theme.offWhite};
 
-  margin-top: -13px;
-`;
+  overflow: hidden;
 
-export const Subtitle = styled.p`
-  margin: 10px 0 0;
+  border-top: 2px solid ${({ theme }) => theme.beige};
 
-  color: #777;
+  &::before {
+    content: '';
 
-  font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
 
-  font-size: 18px;
+    left: 0;
+    top: 0;
 
-  text-align: center;
-`;
+    width: 35px;
+    height: 100%;
 
-export const CardsContainer = styled.div`
+    background: ${({ theme }) => theme.plum};
+  }
+
+  @media (max-width: 768px) {
+    &::before {
+      width: 12px;
+    }
+  }
+`
+
+export const Content = styled.div`
   width: 100%;
-  max-width: 1000px;
+  min-height: 100vh;
+
+  max-width: 1250px;
+
+  margin: 0 auto;
+
+  padding: 3rem 5rem;
 
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 60% 40%;
 
-  gap: 12px;
+  align-items: center;
 
-  @media (max-width: 850px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: 500px) {
+  @media (max-width: 900px) {
     grid-template-columns: 1fr;
+
+    padding: 4rem 3rem;
   }
-`;
 
-export const ServiceCard = styled.div`
-  min-height: 145px;
+  @media (max-width: 600px) {
+    padding: 4rem 2rem;
+  }
+`
 
-  background: #fff;
+export const Title = styled.h2`
+  font-family: 'Playfair Display', serif;
 
-  border-radius: 8px;
+  font-size: clamp(3rem, 5vw, 4.8rem);
 
-  padding: 18px 16px;
+  line-height: 0.95;
 
+  font-weight: 350;
+
+  color: ${({ theme }) => theme.rose};
+
+  margin-bottom: 2rem;
+
+  animation: titleEnter 1s ease-out;
+
+  @keyframes titleEnter {
+    from {
+      opacity: 0;
+      transform: translateX(-60px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+`
+
+export const ServiceList = styled.div`
   display: flex;
   flex-direction: column;
+
+  gap: 1.5rem;
+
+  max-width: 540px;
+`
+
+export const Service = styled.div`
+  animation: serviceEnter 0.8s ease-out backwards;
+
+  &:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+
+  &:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+
+  @keyframes serviceEnter {
+    from {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+`
+
+export const ServiceHeader = styled.div`
+  width: 100%;
+
+  display: flex;
+
   align-items: center;
+
+  background: ${({ theme }) => theme.beige};
+
+  border-radius: 30px;
+
+  overflow: hidden;
+
+  height: 36px;
+`
+
+export const ServiceName = styled.div`
+  height: 100%;
+
+  width: 62%;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding-left: 6px;
+
+  background: ${({ theme }) => theme.plum};
+
+  border-radius: 30px;
+
+  color: ${({ theme }) => theme.offWhite};
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 1rem;
+
+  span {
+    width: 26px;
+    height: 26px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: ${({ theme }) => theme.offWhite};
+
+    color: ${({ theme }) => theme.plum};
+
+    font-weight: 700;
+  }
+`
+
+export const Price = styled.span`
+  flex: 1;
 
   text-align: center;
 
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  color: ${({ theme }) => theme.plum};
 
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 0.95rem;
+`
+
+export const Description = styled.p`
+  margin-top: 0.6rem;
+
+  color: ${({ theme }) => theme.plum};
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 1rem;
+
+  line-height: 1.15;
+`
+
+export const PhoneImage = styled.img`
+  width: min(100%, 480px);
+
+  display: block;
+
+  margin-left: auto;
+
+  animation: phoneEnter 1.2s ease-out;
+
+  transition: transform 0.6s ease;
 
   &:hover {
-    transform: translateY(-5px);
-
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+    transform: translateY(-8px) scale(1.015);
   }
-`;
 
-export const Icon = styled.div`
-  width: 30px;
-  height: 30px;
+  @keyframes phoneEnter {
+    from {
+      opacity: 0;
+      transform: translateX(100px);
+    }
 
-  margin-bottom: 8px;
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @media (max-width: 900px) {
+    margin: 2rem auto 0;
 
-  color: #2464d8;
+    width: min(100%, 420px);
+  }
+`
 
-  font-size: 25px;
-  font-weight: 700;
-`;
+export const Flower = styled.img`
+  position: absolute;
 
-export const CardTitle = styled.h3`
-  margin: 0 0 7px;
+  width: 75px;
 
-  color: #162b50;
+  right: 38%;
+  bottom: 8%;
 
-  font-family: Arial, Helvetica, sans-serif;
+  opacity: 0.7;
 
-  font-size: 13px;
-  font-weight: 700;
-`;
-
-export const CardText = styled.p`
-  margin: 0;
-
-  max-width: 190px;
-
-  color: #777;
-
-  font-family: Arial, Helvetica, sans-serif;
-
-  font-size: 10px;
-
-  line-height: 1.4;
-`;
+  @media (max-width: 900px) {
+    right: 10%;
+    bottom: 3%;
+  }
+`
