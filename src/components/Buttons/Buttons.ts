@@ -29,7 +29,7 @@ export const SmallOutlineButton = styled(DefaultButton)`
   padding: 0.62rem 2rem;
   background: transparent;
 
-  border: 1px solid #ffffff;
+  
   border-radius: 6px;
 
   &:hover {

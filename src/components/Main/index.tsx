@@ -9,11 +9,12 @@ import { Package } from '../Package'
 import { FinalFooter } from '../FinalFooter'
 import { Divider } from '../Divider'
 
+
 export function Main() {
   return (
     <MainContainer>
       <Home />
-      
+          <Sidebar />
           <Divider />
 
           <Services />

@@ -10,7 +10,7 @@ export const PackageContainer = styled.section`
 
   overflow: hidden;
 
-  border-top: 2px solid ${({ theme }) => theme.beige};
+  
 
   &::before {
     content: '';
@@ -315,4 +315,5 @@ export const PriceCents = styled.span`
 
   margin-bottom: 0.8rem;
 `
+
 

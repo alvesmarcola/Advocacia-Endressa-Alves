@@ -10,7 +10,6 @@ export const CTAContainer = styled.section`
 
   overflow: hidden;
 
-  border-top: 2px solid ${({ theme }) => theme.beige};
 
   &::before {
     content: '';

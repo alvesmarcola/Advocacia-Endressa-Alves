@@ -94,7 +94,7 @@ export const Copyright = styled.p`
 
   padding-top: 1.5rem;
 
-  border-top: 1px solid rgba(241, 229, 232, 0.2);
+
 
   font-family: 'Montserrat', sans-serif;
 
