@@ -7,7 +7,7 @@ export const MainContainer = styled.main`
   justify-content: space-between;
   gap: 0.5rem;
 
-  background: #fff; /* Fundo branco */
+  background: "#CDBBC2"; 
   @media (max-width: 820px) {
     overflow-x: hidden;
   }

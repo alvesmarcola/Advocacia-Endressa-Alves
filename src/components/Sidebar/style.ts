@@ -1,105 +1,45 @@
 import styled from 'styled-components'
 
-export const SidebarButton = styled.img`
-  background: transparent;
-  border: none;
-  cursor: pointer;
-
+export const SidebarContainer = styled.a`
   position: fixed;
-  top: 2rem;
-  right: 2rem;
-  z-index: 7;
 
-  @media (min-width: 950px) {
-    display: none;
-  }
-`
+  right: 25px;
+  bottom: 25px;
 
-export const SidebarContent = styled.div`
+  z-index: 9999;
+
+  width: 62px;
+  height: 62px;
+
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  background: #0A3D62;
-  transition: display 5s;
+  align-items: center;
+  justify-content: center;
 
-  width: 100%;
-  height: 100%;
-  padding: 2rem;
+  border-radius: 50%;
 
-  z-index: 6;
+  background: #25d366;
+  color: #fff;
 
-  a {
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 2rem;
-    line-height: 150%;
+  text-decoration: none;
 
-    color: ${(props) => props.theme.gray100};
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.18);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
   }
 
-  p {
-    font-family: 'Fira Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 150%;
+  @media (max-width: 600px) {
+    width: 55px;
+    height: 55px;
 
-    color: ${(props) => props.theme.gray100};
-  }
-
-  nav {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 2rem;
-  }
-
-  .socialNav {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 2rem;
-
-    a {
-      background: linear-gradient(
-            rgba(255, 255, 255, 0.04),
-            rgba(255, 255, 255, 0.04)
-          )
-          padding-box,
-        ${(props) => props.theme.gradientBorder} border-box;
-      border-radius: 8px;
-      border: 1px solid transparent;
-
-      border-radius: 8px;
-
-      cursor: pointer;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-
-  footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 2rem;
-
-    p {
-      font-family: 'Fira Sans';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 0.75rem;
-      line-height: 150%;
-
-      color: ${(props) => props.theme.gray050};
-    }
+    right: 18px;
+    bottom: 18px;
   }
 `
