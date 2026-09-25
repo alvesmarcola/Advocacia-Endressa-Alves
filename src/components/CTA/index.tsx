@@ -1,99 +1,63 @@
 import {
   CTAContainer,
   Content,
+  TextContent,
   Title,
-  ServiceList,
-  Service,
-  ServiceHeader,
-  ServiceName,
-  Price,
-  Description,
-  PhoneImage,
+  BenefitsList,
+  Benefit,
+  BenefitIcon,
+  BenefitText,
+  ImageWrapper,
+  Image,
   Flower,
 } from './style'
 
-import phoneImg from '../../assets/services-img.png'
-import flowerImg from '../../assets/branch_bg.png'
+import serviceImg from '../../assets/post6.jfif'
+import flower from '../../assets/branch_bg.png'
 
 export function CTA() {
+  const benefits = [
+    'Construir autoridade e credibilidade.',
+    'Criaremos uma presença digital profissional e atrativa.',
+    'Aumentar alcance e visibilidade da sua marca nas redes sociais.',
+    'Desenvolver uma presença visual consistente e que entregue confiança aos seus clientes.',
+    'Destacar os diferenciais da empresa em relação à concorrência.',
+    'Humanizar a comunicação da marca, aproximando-a do público.',
+  ]
+
   return (
-    <CTAContainer id="cta">
+    <CTAContainer>
       <Content>
-        <div className="leftContent">
+
+        <TextContent>
           <Title>
-            Serviços Iniciais para
+            Como meus serviços
             <br />
-            profissionalizar seu perfil
+            vão te ajudar
           </Title>
 
-          <ServiceList>
-            <Service>
-              <ServiceHeader>
-                <ServiceName>
-                  <span>➜</span>
-                  Análise de Perfil
-                </ServiceName>
+          <BenefitsList>
+            {benefits.map((benefit, index) => (
+              <Benefit key={index}>
+                <BenefitIcon>➜</BenefitIcon>
 
-                <Price>R$ 180,00</Price>
-              </ServiceHeader>
+                <BenefitText>
+                  {benefit}
+                </BenefitText>
+              </Benefit>
+            ))}
+          </BenefitsList>
+        </TextContent>
 
-              <Description>
-                Analisaremos as métricas de perfil, ajustes na biografia
-                <br />
-                de suas redes sociais, padronização de atendimento
-              </Description>
-            </Service>
+        <ImageWrapper>
+          <Flower src={flower} alt="" />
 
-            <Service>
-              <ServiceHeader>
-                <ServiceName>
-                  <span>➜</span>
-                  Fotos e Gravações
-                </ServiceName>
-
-                <Price>R$ 350,00</Price>
-              </ServiceHeader>
-
-              <Description>
-                Crio roteiros, que te conectam, gravamos vídeos e faço
-                <br />
-                fotos de produtos, te entrego em alta qualidade e
-                <br />
-                prontos para post.
-              </Description>
-            </Service>
-
-            <Service>
-              <ServiceHeader>
-                <ServiceName>
-                  <span>➜</span>
-                  Gerenciamento
-                </ServiceName>
-
-                <Price>R$ 550,00</Price>
-              </ServiceHeader>
-
-              <Description>
-                Nesse pacote incluiremos os dois planos acima e
-                <br />
-                incluímos a gestão das redes sociais da sua empresa,
-                <br />
-                com posts programados, tráfego pago e análises
-                <br />
-                semanais.
-              </Description>
-            </Service>
-          </ServiceList>
-        </div>
-
-        <div className="rightContent">
-          <PhoneImage
-            src={phoneImg}
-            alt="Exemplo de conteúdo para redes sociais"
+          <Image
+            src={serviceImg}
+            alt="Profissional utilizando o celular"
           />
+        </ImageWrapper>
 
-          <Flower src={flowerImg} alt="" />
-        </div>
       </Content>
     </CTAContainer>
   )

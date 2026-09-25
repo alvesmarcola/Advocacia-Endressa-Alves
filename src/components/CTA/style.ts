@@ -10,7 +10,6 @@ export const CTAContainer = styled.section`
 
   overflow: hidden;
 
-
   &::before {
     content: '';
 
@@ -19,7 +18,7 @@ export const CTAContainer = styled.section`
     left: 0;
     top: 0;
 
-    width: 35px;
+    width: 45px;
     height: 100%;
 
     background: ${({ theme }) => theme.plum};
@@ -33,24 +32,31 @@ export const CTAContainer = styled.section`
 `
 
 export const Content = styled.div`
-  width: 100%;
-  min-height: 100vh;
+  position: relative;
 
-  max-width: 1250px;
+  width: 100%;
+  max-width: 1350px;
+
+  min-height: 100vh;
 
   margin: 0 auto;
 
-  padding: 3rem 5rem;
+  padding: 5rem 7rem;
 
   display: grid;
-  grid-template-columns: 60% 40%;
+
+  grid-template-columns: 1fr 0.85fr;
 
   align-items: center;
 
-  @media (max-width: 900px) {
+  gap: 5rem;
+
+  @media (max-width: 1000px) {
     grid-template-columns: 1fr;
 
-    padding: 4rem 3rem;
+    padding: 5rem 4rem;
+
+    gap: 3rem;
   }
 
   @media (max-width: 600px) {
@@ -58,25 +64,33 @@ export const Content = styled.div`
   }
 `
 
+export const TextContent = styled.div`
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+`
+
 export const Title = styled.h2`
   font-family: 'Playfair Display', serif;
 
-  font-size: clamp(3rem, 5vw, 4.8rem);
+  font-size: clamp(3rem, 5vw, 5rem);
 
   line-height: 0.95;
 
-  font-weight: 350;
+  font-weight: 400;
 
-  color: ${({ theme }) => theme.rose};
+  color: ${({ theme }) => theme.coffee};
 
-  margin-bottom: 2rem;
+  margin-bottom: 3.5rem;
 
   animation: titleEnter 1s ease-out;
 
   @keyframes titleEnter {
     from {
       opacity: 0;
-      transform: translateX(-60px);
+      transform: translateX(-50px);
     }
 
     to {
@@ -84,36 +98,61 @@ export const Title = styled.h2`
       transform: translateX(0);
     }
   }
+
+  @media (max-width: 600px) {
+    font-size: 3.2rem;
+
+    margin-bottom: 2.5rem;
+  }
 `
 
-export const ServiceList = styled.div`
+export const BenefitsList = styled.div`
   display: flex;
+
   flex-direction: column;
 
-  gap: 1.5rem;
+  gap: 1.2rem;
 
-  max-width: 540px;
+  max-width: 700px;
 `
 
-export const Service = styled.div`
-  animation: serviceEnter 0.8s ease-out backwards;
+export const Benefit = styled.div`
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 1rem;
+
+  animation: benefitEnter 0.8s ease-out backwards;
 
   &:nth-child(1) {
-    animation-delay: 0.2s;
+    animation-delay: 0.15s;
   }
 
   &:nth-child(2) {
-    animation-delay: 0.4s;
+    animation-delay: 0.25s;
   }
 
   &:nth-child(3) {
-    animation-delay: 0.6s;
+    animation-delay: 0.35s;
   }
 
-  @keyframes serviceEnter {
+  &:nth-child(4) {
+    animation-delay: 0.45s;
+  }
+
+  &:nth-child(5) {
+    animation-delay: 0.55s;
+  }
+
+  &:nth-child(6) {
+    animation-delay: 0.65s;
+  }
+
+  @keyframes benefitEnter {
     from {
       opacity: 0;
-      transform: translateX(-40px);
+      transform: translateX(-30px);
     }
 
     to {
@@ -123,133 +162,114 @@ export const Service = styled.div`
   }
 `
 
-export const ServiceHeader = styled.div`
-  width: 100%;
+export const BenefitIcon = styled.span`
+  flex-shrink: 0;
+
+  width: 40px;
+  height: 40px;
 
   display: flex;
 
   align-items: center;
+  justify-content: center;
 
-  background: ${({ theme }) => theme.beige};
-
-  border-radius: 30px;
-
-  overflow: hidden;
-
-  height: 36px;
-`
-
-export const ServiceName = styled.div`
-  height: 100%;
-
-  width: 62%;
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 10px;
-
-  padding-left: 6px;
+  border-radius: 50%;
 
   background: ${({ theme }) => theme.plum};
 
-  border-radius: 30px;
-
   color: ${({ theme }) => theme.offWhite};
 
+  font-size: 1.5rem;
+
+  font-weight: 700;
+`
+
+export const BenefitText = styled.p`
+  margin: 0;
+
+  padding-top: 0.35rem;
+
+  color: ${({ theme }) => theme.coffee};
+
   font-family: 'Montserrat', sans-serif;
 
-  font-size: 1rem;
+  font-size: 1.1rem;
 
-  span {
-    width: 26px;
-    height: 26px;
+  line-height: 1.25;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  max-width: 650px;
+`
 
-    border-radius: 50%;
+export const ImageWrapper = styled.div`
+  position: relative;
 
-    background: ${({ theme }) => theme.offWhite};
+  display: flex;
 
-    color: ${({ theme }) => theme.plum};
+  align-items: center;
+  justify-content: center;
 
-    font-weight: 700;
+  padding: 2rem;
+
+  @media (max-width: 1000px) {
+    max-width: 600px;
+
+    width: 100%;
+
+    margin: 0 auto;
   }
 `
 
-export const Price = styled.span`
-  flex: 1;
+export const Image = styled.img`
+  position: relative;
 
-  text-align: center;
+  z-index: 2;
 
-  color: ${({ theme }) => theme.plum};
+  width: 100%;
 
-  font-family: 'Montserrat', sans-serif;
+  max-width: 500px;
 
-  font-size: 0.95rem;
-`
+  aspect-ratio: 0.82;
 
-export const Description = styled.p`
-  margin-top: 0.6rem;
+  object-fit: cover;
 
-  color: ${({ theme }) => theme.plum};
+  box-shadow: 0 20px 35px rgba(87, 60, 44, 0.18);
 
-  font-family: 'Montserrat', sans-serif;
+  animation: imageEnter 1.1s ease-out;
 
-  font-size: 1rem;
-
-  line-height: 1.15;
-`
-
-export const PhoneImage = styled.img`
-  width: min(100%, 480px);
-
-  display: block;
-
-  margin-left: auto;
-
-  animation: phoneEnter 1.2s ease-out;
-
-  transition: transform 0.6s ease;
+  transition: transform 0.5s ease;
 
   &:hover {
-    transform: translateY(-8px) scale(1.015);
+    transform: translateY(-6px);
   }
 
-  @keyframes phoneEnter {
+  @keyframes imageEnter {
     from {
       opacity: 0;
-      transform: translateX(100px);
+      transform: translateX(60px);
     }
 
     to {
       opacity: 1;
       transform: translateX(0);
     }
-  }
-
-  @media (max-width: 900px) {
-    margin: 2rem auto 0;
-
-    width: min(100%, 420px);
   }
 `
 
 export const Flower = styled.img`
   position: absolute;
 
+  z-index: 3;
+
+  top: -1rem;
+  left: 50%;
+
   width: 75px;
 
-  right: 38%;
-  bottom: 8%;
+  opacity: 0.8;
 
-  opacity: 0.7;
+  transform: translateX(-50%);
 
-  @media (max-width: 900px) {
-    right: 10%;
-    bottom: 3%;
+  @media (max-width: 600px) {
+    width: 55px;
   }
 `

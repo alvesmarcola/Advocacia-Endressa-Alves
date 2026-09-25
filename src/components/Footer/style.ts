@@ -10,8 +10,6 @@ export const FooterContainer = styled.section`
 
   overflow: hidden;
 
-  
-
   &::before {
     content: '';
 
@@ -20,7 +18,7 @@ export const FooterContainer = styled.section`
     left: 0;
     top: 0;
 
-    width: 35px;
+    width: 30px;
     height: 100%;
 
     background: ${({ theme }) => theme.plum};
@@ -36,46 +34,99 @@ export const FooterContainer = styled.section`
 export const Content = styled.div`
   position: relative;
 
+  z-index: 2;
+
   width: 100%;
-  max-width: 1250px;
+  max-width: 1350px;
 
   min-height: 100vh;
 
   margin: 0 auto;
 
-  padding: 2.5rem 4rem 4rem;
+  padding: 5rem 6rem;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  align-items: center;
+
+  gap: 5rem;
+
+  @media (max-width: 1000px) {
+    grid-template-columns: 1fr;
+
+    padding: 5rem 4rem;
+
+    gap: 4rem;
+  }
+
+  @media (max-width: 600px) {
+    padding: 4rem 2rem;
+  }
+`
+
+export const LeftContent = styled.div`
+  position: relative;
 
   display: flex;
+
   flex-direction: column;
 
   justify-content: center;
-
-  @media (max-width: 768px) {
-    padding: 4rem 2rem;
-  }
 `
 
 export const Title = styled.h2`
   font-family: 'Playfair Display', serif;
 
-  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-size: clamp(3.5rem, 5.5vw, 5.5rem);
 
-  line-height: 1;
+  line-height: 0.95;
 
   font-weight: 400;
 
   color: ${({ theme }) => theme.plum};
 
-  text-align: center;
-
-  margin-bottom: 3.5rem;
+  margin: 0;
 
   animation: titleEnter 1s ease-out;
 
   @keyframes titleEnter {
     from {
       opacity: 0;
-      transform: translateY(-40px);
+      transform: translateX(-50px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @media (max-width: 600px) {
+    font-size: 3.2rem;
+  }
+`
+
+export const Description = styled.p`
+  max-width: 550px;
+
+  margin-top: 3.5rem;
+
+  color: ${({ theme }) => theme.plum};
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 1rem;
+
+  line-height: 1.15;
+
+  animation: descriptionEnter 1s ease-out 0.2s backwards;
+
+  @keyframes descriptionEnter {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
     }
 
     to {
@@ -84,10 +135,10 @@ export const Title = styled.h2`
     }
   }
 
-  @media (max-width: 768px) {
-    font-size: 3rem;
-
-    margin-bottom: 2.5rem;
+  @media (max-width: 600px) {
+    br {
+      display: none;
+    }
   }
 `
 
@@ -96,63 +147,170 @@ export const Flower = styled.img`
 
   width: 80px;
 
-  top: 2rem;
   right: 5%;
 
-  opacity: 0.75;
+  top: 35%;
 
-  animation: flowerEnter 1s ease-out;
+  opacity: 0.8;
 
-  @keyframes flowerEnter {
-    from {
-      opacity: 0;
-      transform: translateX(30px);
-    }
+  @media (max-width: 1000px) {
+    width: 65px;
 
-    to {
-      opacity: 0.75;
-      transform: translateX(0);
-    }
-  }
+    right: 10%;
 
-  @media (max-width: 768px) {
-    width: 55px;
-
-    right: 2rem;
+    top: 30%;
   }
 `
 
-export const CardsContainer = styled.div`
-  display: grid;
+export const RightContent = styled.div`
+  display: flex;
 
-  grid-template-columns: repeat(3, 1fr);
+  flex-direction: column;
 
-  gap: 1.5rem;
+  justify-content: center;
 
-  align-items: stretch;
+  gap: 2rem;
+`
 
-  @media (max-width: 900px) {
-    grid-template-columns: 1fr;
+export const ServicesList = styled.div`
+  position: relative;
 
-    max-width: 500px;
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.7rem;
+
+  padding: 0.5rem 0;
+
+  &::before,
+  &::after {
+    content: '';
+
+    position: absolute;
 
     width: 100%;
 
-    margin: 0 auto;
+    height: 130px;
+
+    border: 2px solid ${({ theme }) => theme.coffee};
+
+    border-radius: 50%;
+
+    opacity: 0.65;
+
+    pointer-events: none;
+  }
+
+  &::before {
+    top: -25px;
+
+    left: -5%;
+  }
+
+  &::after {
+    bottom: -25px;
+
+    right: -5%;
   }
 `
 
-export const Card = styled.div`
+export const Service = styled.div`
   position: relative;
 
-  min-height: 340px;
+  z-index: 2;
 
-  padding: 3rem 1.5rem 1.5rem;
+  width: 100%;
+
+  height: 42px;
 
   display: flex;
-  flex-direction: column;
 
   align-items: center;
+
+  background: ${({ theme }) => theme.beige};
+
+  border-radius: 25px;
+
+  overflow: hidden;
+
+  animation: serviceEnter 0.7s ease-out backwards;
+
+  &:nth-child(1) {
+    animation-delay: 0.15s;
+  }
+
+  &:nth-child(2) {
+    animation-delay: 0.25s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 0.35s;
+  }
+
+  &:nth-child(4) {
+    animation-delay: 0.45s;
+  }
+
+  @keyframes serviceEnter {
+    from {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+`
+
+export const ServiceIcon = styled.span`
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: ${({ theme }) => theme.rose};
+
+  color: ${({ theme }) => theme.offWhite};
+
+  font-size: 1.4rem;
+
+  font-weight: 700;
+`
+
+export const ServiceName = styled.span`
+  padding-left: 0.8rem;
+
+  color: ${({ theme }) => theme.plum};
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 1rem;
+`
+
+export const WhatsAppBox = styled.div`
+  position: relative;
+
+  z-index: 2;
+
+  min-height: 220px;
+
+  padding: 2rem;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
 
   text-align: center;
 
@@ -160,218 +318,29 @@ export const Card = styled.div`
 
   border-radius: 24px;
 
-  color: ${({ theme }) => theme.plum};
-
-  animation: cardEnter 0.8s ease-out backwards;
+  cursor: pointer;
 
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
-
-  &:nth-child(1) {
-    animation-delay: 0.2s;
-  }
-
-  &:nth-child(2) {
-    animation-delay: 0.4s;
-  }
-
-  &:nth-child(3) {
-    animation-delay: 0.6s;
-  }
 
   &:hover {
     transform: translateY(-6px);
 
     box-shadow: 0 15px 30px rgba(87, 60, 44, 0.12);
   }
-
-  .from {
-    margin-top: 1rem;
-
-    font-family: 'Montserrat', sans-serif;
-
-    font-size: 1rem;
-
-    font-weight: 700;
-  }
-
-  @keyframes cardEnter {
-    from {
-      opacity: 0;
-      transform: translateY(50px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 `
 
-export const CardTitle = styled.div`
-  position: absolute;
+export const WhatsAppTitle = styled.h3`
+  margin: 0;
 
-  top: -18px;
+  font-family: 'Playfair Display', serif;
 
-  left: 5%;
+  font-size: clamp(2.5rem, 4vw, 4rem);
 
-  width: 90%;
+  line-height: 0.95;
 
-  min-height: 36px;
-
-  padding: 0.45rem 1rem;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 25px;
-
-  background: ${({ theme }) => theme.plum};
-
-  color: ${({ theme }) => theme.offWhite};
-
-  font-family: 'Montserrat', sans-serif;
-
-  font-size: 1rem;
-
-  white-space: nowrap;
-`
-
-export const Description = styled.p`
-  font-family: 'Montserrat', sans-serif;
-
-  font-size: 1rem;
-
-  line-height: 1.15;
-
-  margin-bottom: 1rem;
+  font-weight: 400;
 
   color: ${({ theme }) => theme.plum};
-`
-
-export const Price = styled.div`
-  display: flex;
-
-  align-items: baseline;
-
-  justify-content: center;
-
-  color: ${({ theme }) => theme.plum};
-
-  margin: 0.5rem 0;
-`
-
-export const PriceSmall = styled.span`
-  font-family: 'Montserrat', sans-serif;
-
-  font-size: 2rem;
-
-  font-weight: 700;
-`
-
-export const PriceBig = styled.span`
-  font-family: 'Montserrat', sans-serif;
-
-  font-size: 7rem;
-
-  line-height: 0.85;
-
-  font-weight: 700;
-
-  letter-spacing: -6px;
-`
-
-export const BottomText = styled.p`
-  margin-top: auto;
-
-  font-family: 'Montserrat', sans-serif;
-
-  font-size: 1rem;
-
-  line-height: 1.15;
-
-  color: ${({ theme }) => theme.plum};
-`
-
-export const ArtList = styled.div`
-  width: 100%;
-
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 0.6rem;
-
-  margin-top: 0.3rem;
-`
-
-export const ArtItem = styled.div`
-  width: 100%;
-
-  height: 38px;
-
-  display: flex;
-
-  align-items: center;
-
-  background: ${({ theme }) => theme.offWhite};
-
-  border-radius: 20px;
-
-  overflow: hidden;
-
-  font-family: 'Montserrat', sans-serif;
-
-  span {
-    width: 34%;
-
-    height: 100%;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 5px;
-
-    padding-left: 5px;
-
-    background: ${({ theme }) => theme.rose};
-
-    border-radius: 20px;
-
-    color: ${({ theme }) => theme.offWhite};
-
-    font-size: 1.2rem;
-
-    font-weight: 700;
-
-    &::before {
-      content: '';
-    }
-  }
-
-  p {
-    flex: 1;
-
-    margin: 0;
-
-    text-align: left;
-
-    padding-left: 0.6rem;
-
-    color: ${({ theme }) => theme.coffee};
-
-    font-size: 0.9rem;
-  }
-`
-
-export const ArtPrice = styled.span`
-  padding-right: 0.8rem;
-
-  color: ${({ theme }) => theme.coffee};
-
-  font-size: 0.9rem;
 `

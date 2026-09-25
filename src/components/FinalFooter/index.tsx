@@ -20,7 +20,7 @@ export function FinalFooter() {
 
         <Links>
           <Link
-            href="https://wa.me/55SEUNUMERO"
+            href="https://wa.me/5554999359083"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -28,16 +28,14 @@ export function FinalFooter() {
           </Link>
 
           <Link
-            href="https://instagram.com/SEUINSTAGRAM"
+            href="https://www.instagram.com/eduarda_estrategistadigital?stkn=dmVrN282Mmk3aXl0"
             target="_blank"
             rel="noopener noreferrer"
           >
             @Eduarda_estrategistadigital
           </Link>
 
-          <Link href="mailto:SEUEMAIL@email.com">
-            E-mail
-          </Link>
+          
         </Links>
 
         <Copyright>
